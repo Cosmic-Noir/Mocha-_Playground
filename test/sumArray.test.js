@@ -10,4 +10,11 @@ describe("Array sum", () => {
       expect(ans).to.equal(6);
     });
   });
+  it("should sum an array of numbers and non-numeric strings", () => {
+    return sum([1, "2", 3, "a"]).then(ans => {
+      expect(ans)
+        .to.be.a("number")
+        .that.equal(6);
+    });
+  });
 });
