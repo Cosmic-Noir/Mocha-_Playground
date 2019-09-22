@@ -17,4 +17,10 @@ describe("Get /sum", () => {
       .query({ a: 8, b: 4 })
       .expect(200, "8 divided by 4 is 2");
   });
+  it('should return 400 if "a" is missing', () => {
+    return supertest(app)
+      .get("/sum")
+      .query({ b: 4 })
+      .expect(400, "Value for a is needed");
+  });
 });
